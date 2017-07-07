@@ -22,7 +22,7 @@ class Logless {
         };
     }
     get do() {
-        return (this.serverless.service.custom && this.serverless.service.custom.logless && this.serverless.service.custom.logless.logRetention);
+        return this.serverless.service.custom && this.serverless.service.custom.logless && this.serverless.service.custom.logless.logRetention;
     }
     get config() {
         if (this.do) {

@@ -16,12 +16,7 @@ class Logless {
       'after:package:compileFunctions': this.configLogRetention,
     }
   }
-  //
-  // Resources:
-  //   CronLogGroup:
-  //     Properties:
-  //       RetentionInDays: "30"
-  //
+
   configLogRetention = () => {
     if (this.do) {
       this.serverless.cli.log(`Configurating CloudWatch log retention`);
@@ -41,7 +36,7 @@ class Logless {
   }
 
   get do() {
-    return (this.serverless.service.custom && this.serverless.service.custom.logless && this.serverless.service.custom.logless.logRetention)
+    return this.serverless.service.custom && this.serverless.service.custom.logless && this.serverless.service.custom.logless.logRetention
   }
 
   get config() {
