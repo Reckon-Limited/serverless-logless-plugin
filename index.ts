@@ -25,7 +25,7 @@ class Logless {
 
       this.serverless.service.getAllFunctions().forEach( (name: string) => {
 
-        let logGroup = `${name}LogGroup`;
+        let logGroup = this.toLogGroup(name);
 
         if (Resources[logGroup]) {
           this.serverless.cli.log(`Configurating ${logGroup} RetentionInDays: ${this.config.logRetention}`);
@@ -33,6 +33,11 @@ class Logless {
         }
       });
     }
+  }
+
+  toLogGroup(n: string) {
+    const name = n.charAt(0).toUpperCase() + n.slice(1);
+    return `${name}LogGroup`;
   }
 
   get do() {

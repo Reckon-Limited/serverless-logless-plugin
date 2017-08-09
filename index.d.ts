@@ -7,6 +7,7 @@ declare class Logless {
     };
     constructor(serverless: any, options: any);
     configLogRetention: () => void;
+    toLogGroup(n: string): string;
     readonly do: any;
     readonly config: any;
 }
